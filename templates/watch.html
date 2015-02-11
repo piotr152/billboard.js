@@ -10,7 +10,7 @@
     <div id="content">
       <ul id="messages">
         {% for item in data %}
-          <li>
+          <li class="{{item.user}}">
             <span class="date">{{ item.date }}</span>
             {{ item.message }}
           </li>

@@ -1,7 +1,12 @@
 {% extends 'watch.html' %}
   {%block content%}
-    <form action="">
-      <input id="m" autocomplete="off" /><button type="submit">Send</button><button type="button" class="delete">DeleteLog</button>
+  <div id="footer">
+    <form action="" class="{{user}}">
+      <input id="m" autocomplete="off" />
+      <div class="buttons">
+	      <button type="submit"  >Send</button>
+	      <button type="button" class="delete">Clear</button>
+      </div>
     </form>
+   </div>
   {%endblock%}
-

@@ -5,12 +5,12 @@ var http = require("http").Server(app)
 var io = require("socket.io")(http)
 var fs = require("fs")
 var swig = require("swig")
+var renderer = require("./modules/renderer")
 
 var templatedir = "/templates"
 
 var log = "log.txt"
 var title = "Billboard"
-
 
 if (process.argv[2]) title = process.argv[2]
 
@@ -19,59 +19,13 @@ app.engine('html', swig.renderFile)
 app.set("views", "./templates")
 app.set("view engine", "html")
 
-app.get("/write", function(req, res){
-	fs.readFile("log.txt", function(err, data){
-		if (err) {
-			res.render("write", {data: [], title: title})
-			return
-		}
-		var logcontent = data.toString().split("\n")
-		var jsonobjects = []
-		logcontent.forEach(function(e,i,a){
-			if (e != "" && typeof e != "undefined") {
-				try {
-					var j = JSON.parse(e, function(k,v){
-						if (k == "date")
-							return new Date(v).toUTCString()
-						else
-							return v
-					})
-					jsonobjects.push(j)
-				} catch (e){}
-				
-			}
-		})
-		res.render("write", {data: jsonobjects, title: title})
-	})
-})
+app.get("/write", function(req,res){renderer.render(req,res,"write",log,title,"")})
 
-app.get("/", function(req, res){
+app.get("/write_gmbh", function(req,res){renderer.render(req,res,"write",log,title,"gmbh")})
 
+app.get("/write_ev", function(req,res){renderer.render(req,res,"write",log,title,"ev")})
 
-	fs.readFile("log.txt", function(err, data){
-		if (err) {
-			res.render("watch", {data: [], title: title})
-			return
-		}
-		var logcontent = data.toString().split("\n")
-		var jsonobjects = []
-		logcontent.forEach(function(e,i,a){
-			if (e != "" && typeof e != "undefined") {
-				try {
-					var j = JSON.parse(e, function(k,v){
-						if (k == "date")
-							return new Date(v).toUTCString()
-						else
-							return v
-					})
-					jsonobjects.push(j)
-				} catch (e){}
-				
-			}
-		})
-		res.render("watch", {data: jsonobjects, title: title})
-	})
-})
+app.get("/", function(req, res){renderer.render(req,res,"watch",log,title,"")})
 
 
 io.on("connection", function(socket) {

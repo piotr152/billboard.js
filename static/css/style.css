@@ -1,7 +1,7 @@
-* { 
+/** { 
   margin: 0; 
   padding: 0; 
-}
+}*/
 
 html {
   background: #79C8CF url("../images/noise.png");
@@ -24,6 +24,9 @@ h1 {
   box-shadow: 0 0 5px #333;
   position: fixed;
   width: 100%;
+  margin-top:0;
+  top:0;
+  left:0;
 }
 
 #header h1 {
@@ -35,23 +38,25 @@ h1 {
 }
 
 
-form { 
-  padding: 3px; 
-  position: fixed; 
-  bottom: 0; 
+#footer {
+  padding: 10px; 
+  background-color: #013168;
+  position: fixed;
+  bottom:0;
+  left:0;
   width: 100%; 
 }
 
 form input { 
   padding: 10px;
-  width: 70%;
-  margin-right: .5%;
+  width: 75%;
+  /*margin-right: .5%;*/
   border: 1px solid #333;
 }
 
 form button {
  width: 9.0%; 
- background: #013168; 
+ background: #79C8CF; 
  border: none; 
  padding: 10px; 
  color: #fff; 
@@ -59,6 +64,11 @@ form button {
 
 form button.delete {
   background: #e4e;
+}
+
+form div.buttons {
+  display: inline;
+  width: 20%;
 }
 
 #messages {
@@ -93,10 +103,34 @@ form button.delete {
   float: right;
 }
 
+#messages li.ev {
+  background-color: #f7080e;
+}
+
+#messages li.gmbh {
+  background-color: #f7980e;
+}
+
 @media screen and (max-width: 500px) {
   .date {
     float:none;
   }
 
+  form div.buttons {
+    display: block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  form input {
+    display:block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  form button {
+    width:45%;
+  }
 }
