@@ -1,0 +1,16 @@
+{
+"name": "ccbillboard",
+"verision": 0.1,
+"description": "A browser-based billboard app",
+
+"scripts": {
+	"start": "node app.js"
+},
+
+"dependencies": {
+	"express": "*",
+	"swig": "*",
+	"socket.io": "*"
+}
+
+}

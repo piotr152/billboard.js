@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+
+    <ul id="messages">
+      {% for item in data %}
+        <li>
+          {{ item.message }}
+          <span class="date">{{ item.date }}</span>
+        </li>
+      {%endfor%}
+    </ul>
+    {% block content %}{% endblock %}
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="js/chat.js"></script>
+  </body>
+</html>
