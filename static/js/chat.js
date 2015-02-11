@@ -17,6 +17,7 @@ $(".delete").click(function(){
 
 socket.on("chat message", function(msg) {
 	$("#messages").append($("<li>").hide().html(msg.message + "<span class='date'>" + new Date(msg.date).toUTCString() + "</span>").fadeIn())
+	window.scrollTo(0,document.body.scrollHeight);
 })
 
 socket.on("logdeleted", function() {

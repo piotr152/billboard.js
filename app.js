@@ -9,6 +9,10 @@ var swig = require("swig")
 var templatedir = "/templates"
 
 var log = "log.txt"
+var title = "Billboard"
+
+
+if (process.argv[2]) title = process.argv[2]
 
 app.use(express.static(path.join(__dirname, 'static')))
 app.engine('html', swig.renderFile)
@@ -18,7 +22,7 @@ app.set("view engine", "html")
 app.get("/write", function(req, res){
 	fs.readFile("log.txt", function(err, data){
 		if (err) {
-			res.render("write", {data: []})
+			res.render("write", {data: [], title: title})
 			return
 		}
 		var logcontent = data.toString().split("\n")
@@ -37,7 +41,7 @@ app.get("/write", function(req, res){
 				
 			}
 		})
-		res.render("write", {data: jsonobjects})
+		res.render("write", {data: jsonobjects, title: title})
 	})
 })
 
@@ -46,7 +50,7 @@ app.get("/", function(req, res){
 
 	fs.readFile("log.txt", function(err, data){
 		if (err) {
-			res.render("watch", {data: []})
+			res.render("watch", {data: [], title: title})
 			return
 		}
 		var logcontent = data.toString().split("\n")
@@ -65,7 +69,7 @@ app.get("/", function(req, res){
 				
 			}
 		})
-		res.render("watch", {data: jsonobjects})
+		res.render("watch", {data: jsonobjects, title: title})
 	})
 })
 
@@ -89,4 +93,4 @@ io.on("connection", function(socket) {
 })
 
 
-http.listen(8000, "localhost", function(){})
+http.listen(8000, "localhost", function(){console.log("listening to port 8000")})
