@@ -81,6 +81,11 @@ io.on("connection", function(socket) {
 		io.emit("chat message", msg)
 		fs.appendFile(log, JSON.stringify(msg) + "\n")
 	})
+
+	socket.on("deletelog", function(msg) {
+		fs.unlink("log.txt")
+		io.emit("logdeleted")
+	})
 })
 
 

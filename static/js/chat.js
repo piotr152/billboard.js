@@ -11,6 +11,18 @@ $("form").submit(function(){
 	return false
 })
 
-socket.on("chat message", function(msg){
+$(".delete").click(function(){
+	socket.emit("deletelog")
+})
+
+socket.on("chat message", function(msg) {
 	$("#messages").append($("<li>").hide().html(msg.message + "<span class='date'>" + new Date(msg.date).toUTCString() + "</span>").fadeIn())
+})
+
+socket.on("logdeleted", function() {
+	$("#messages").fadeOut(function(){
+		$("#messages").empty()
+		$("#messages").show()
+	})
+	
 })

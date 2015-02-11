@@ -31,7 +31,7 @@ form {
 
 form input { 
   padding: 10px;
-  width: 90%;
+  width: 80%;
   margin-right: .5%;
   border: 1px solid #333;
 }
@@ -42,6 +42,10 @@ form button {
  border: none; 
  padding: 10px; 
  color: #fff; 
+}
+
+form button.delete {
+  background: #e4e;
 }
 
 #messages {
