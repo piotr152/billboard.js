@@ -1,16 +1,17 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Billboard</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-
+  <h1><center>Janz wischtiges Zeuch</center></h1>
     <ul id="messages">
       {% for item in data %}
         <li>
+        <span class="date">{{ item.date }}</span>
           {{ item.message }}
-          <span class="date">{{ item.date }}</span>
+          
         </li>
       {%endfor%}
     </ul>

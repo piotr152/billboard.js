@@ -23,7 +23,6 @@ app.get("/write", function(req, res){
 		}
 		var logcontent = data.toString().split("\n")
 		var jsonobjects = []
-		console.log(logcontent)
 		logcontent.forEach(function(e,i,a){
 			if (e != "" && typeof e != "undefined") {
 				try {
@@ -52,7 +51,6 @@ app.get("/", function(req, res){
 		}
 		var logcontent = data.toString().split("\n")
 		var jsonobjects = []
-		console.log(logcontent)
 		logcontent.forEach(function(e,i,a){
 			if (e != "" && typeof e != "undefined") {
 				try {
@@ -86,4 +84,4 @@ io.on("connection", function(socket) {
 })
 
 
-http.listen(8000, function(){})
+http.listen(8000, "localhost", function(){})
