@@ -3,8 +3,11 @@
   padding: 0; 
 }*/
 
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
 html {
-  background: #79C8CF url("../images/noise.png");
+  background: #FEF1E0 url("../images/noise.png");
+  color: #F6E6CE;
 }
 
 body { 
@@ -17,16 +20,18 @@ h1 {
 }
 
 #header {
-  color: #eee;
+  color: #F6E6CE;
   padding: 20px 0px;
   margin-bottom: 1em;
-  background-color: #013168;
+  background: #3B2E2A url("../images/noise.png");
   box-shadow: 0 0 5px #333;
   position: fixed;
   width: 100%;
   margin-top:0;
   top:0;
   left:0;
+  font-family: "Oswald";
+  font-size:2em;
 }
 
 #header h1 {
@@ -34,13 +39,13 @@ h1 {
 }
 
 #content {
-  padding-top: 6em;
+  padding-top: 10em;
 }
 
 
 #footer {
   padding: 10px; 
-  background-color: #013168;
+  background: #3B2E2A url("../images/noise.png");
   position: fixed;
   bottom:0;
   left:0;
@@ -48,29 +53,26 @@ h1 {
 }
 
 form input { 
-  
+  padding: 10px;
   width: 75%;
   /*margin-right: .5%;*/
   border: 1px solid #333;
+  font-size: 1em;
+  background: #FEF1E0 url("../images/noise.png");
 }
 
 form button {
  width: 9.0%; 
- background: #79C8CF; 
+ background: #F6E6CE; 
  border: none; 
  padding: 10px; 
- color: #fff; 
+ color: #3B2E2A;
+ font-weight: bold;
+ font-size: 1em;
 }
 
 form button.delete {
-  background: #e4e;
-}
-
-form {
-    display:block;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+  background: #F6E6CE;
 }
 
 form div.buttons {
@@ -86,8 +88,7 @@ form div.buttons {
 }
 
 #messages li { 
-  background-color: #013168;
-  color: #eee;
+  background: #3B2E2A url("../images/noise.png");
   font-size: 2em;
   padding: 10px 20px;
   border: 1px solid #333;

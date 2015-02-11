@@ -1,9 +1,9 @@
 var fs = require("fs")
 
-exports.render = function(req, res, template, log, title, user) {
+exports.render = function(req, res, template, log, title, user, css) {
 	fs.readFile(log, function(err, data){
 		if (err) {
-			res.render(template, {data: [], title: title})
+			res.render(template, {data: [], title: title, user: user, css: css})
 			return
 		}
 		var logcontent = data.toString().split("\n")
@@ -22,6 +22,7 @@ exports.render = function(req, res, template, log, title, user) {
 				
 			}
 		})
-		res.render(template, {data: jsonobjects, title: title, user: user})
+		console.log(css)
+		res.render(template, {data: jsonobjects, title: title, user: user, css: css})
 	})	
 } 
