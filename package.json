@@ -1,16 +1,20 @@
 {
-"name": "ccbillboard",
-"verision": 0.1,
-"description": "A browser-based billboard app",
+    "name": "ccbillboard",
+    "verision": 0.1,
+    "description": "A browser-based billboard app",
+    "repository" : {
+            "type" : "git",
+            "url" : "git@bitbucket.org:piotr/ccbillboard"
+    },
 
-"scripts": {
-	"start": "node app.js"
-},
+    "scripts": {
+            "start": "node app.js"
+    },
 
-"dependencies": {
-	"express": "*",
-	"swig": "*",
-	"socket.io": "*"
-}
+    "dependencies": {
+            "express": "*",
+            "swig": "*",
+            "socket.io": "*"
+    }
 
 }
