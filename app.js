@@ -5,52 +5,30 @@ var http = require("http").Server(app)
 var io = require("socket.io")(http)
 var fs = require("fs")
 var swig = require("swig")
-var renderer = require("./modules/renderer")
-
-var templatedir = "/templates"
-
-var log = "log.txt"
-var title = "Billboard"
-var css = "style.css"
+var config = require("./modules/config")
 
 var args = require("optimist").argv
 
-if (args.title) title = args.title
-if (args.css) css = args.css
+if (args.title) config.setTitle(args.title)
+if (args.css) config.setCss(args.css)
+if (args.log) config.setLog(args.log)
+if (args.port) config.setPort(args.port)
 
-console.log(css)
+
+
+console.log(config.css)
 
 app.use(express.static(path.join(__dirname, 'static')))
 app.engine('html', swig.renderFile)
 app.set("views", "./templates")
 app.set("view engine", "html")
 
-app.get("/write", function(req,res){renderer.render(req,res,"write",log,title,"", css)})
+require("./modules/router").setup(app)
 
-app.get("/write_gmbh", function(req,res){renderer.render(req,res,"write",log,title,"gmbh",css)})
-
-app.get("/write_ev", function(req,res){renderer.render(req,res,"write",log,title,"ev",css)})
-
-app.get("/", function(req, res){renderer.render(req,res,"watch",log,title,"",css)})
+require("./modules/socket").setup(io)
 
 
-io.on("connection", function(socket) {
-	console.log("a user connected")
-	socket.on("disconnect", function() {
-		console.log("user disconnected")
-	})
-
-	socket.on("chat message", function(msg) {
-		console.log(msg)
-		io.emit("chat message", msg)
-		fs.appendFile(log, JSON.stringify(msg) + "\n")
-	})
-
-	socket.on("deletelog", function(msg) {
-		fs.unlink("log.txt")
-		io.emit("logdeleted")
-	})
-})
 
 
-http.listen(8000, "localhost", function(){console.log("listening to port 8000")})
+
+http.listen(config.port, "localhost", function(){console.log("listening to port " + config.port)})

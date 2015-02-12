@@ -1,9 +1,11 @@
 var fs = require("fs")
+var config = require("./config")
 
-exports.render = function(req, res, template, log, title, user, css) {
-	fs.readFile(log, function(err, data){
+
+exports.render = function(req, res, template, user) {
+	fs.readFile(config.log, function(err, data){
 		if (err) {
-			res.render(template, {data: [], title: title, user: user, css: css})
+			res.render(template, {data: [], title: config.title, user: user, css: config.css})
 			return
 		}
 		var logcontent = data.toString().split("\n")
@@ -22,7 +24,6 @@ exports.render = function(req, res, template, log, title, user, css) {
 				
 			}
 		})
-		console.log(css)
-		res.render(template, {data: jsonobjects, title: title, user: user, css: css})
+		res.render(template, {data: jsonobjects, title: config.title, user: user, css: config.css})
 	})	
 } 
