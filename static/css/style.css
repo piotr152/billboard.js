@@ -118,7 +118,7 @@ form div.buttons {
   background-color: #f7980e;
 }
 
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 1000px) {
   .date {
     float:none;
   }
