@@ -1,4 +1,4 @@
-# Billboard App
+# Billboard
 
 A little Billboard app that allows you to post messages to the big screen.
 
@@ -12,18 +12,14 @@ npm start
 
 ## Options
 
-- `--log <log file>`
-  
-  the location where the chat log is stored
+`--log <log file>`  the location where the chat log is stored
 
-- `--css <css file>`
-  
-  choose the design of your billboard. css files are stored in static/css
+`--css <css file>` choose the design of your billboard. css files are stored in static/css
 
-- `--title <title>` 
+`--title <title>` the title for your billboard
 
-  the title for your billboard
+`--port <portno>` the port on which the billboard runs
 
-- `--port <portno>`
-  
-  the port on which the billboard runs
+## Custom CSS
+
+You can store custom CSS files in `static/css`. You'll find examples there.
