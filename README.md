@@ -5,9 +5,11 @@ A little Billboard app that allows you to post messages to the big screen.
 ## Installation and Execution
 ```bash
 git clone git@bitbucket.org:piotr/ccbillboard
+cd ccbillboard
 npm install
-npm start
 
+nodejs app.js #(on Debian-based distros)
+node app.js #(on all other distros)
 ``` 
 
 ## Options
