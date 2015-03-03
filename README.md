@@ -22,6 +22,8 @@ node app.js #(on all other distros)
 
 `--port <portno>` the port on which the billboard runs
 
+`--writelink <link>` the link name used for writing. Default is "write"
+
 ## Custom CSS
 
 You can store custom CSS files in `static/css`. You'll find examples there.
