@@ -13,6 +13,7 @@ if (args.title) config.setTitle(args.title)
 if (args.css) config.setCss(args.css)
 if (args.log) config.setLog(args.log)
 if (args.port) config.setPort(args.port)
+if (args.writelink) config.setWriteLink(args.writelink)
 
 
 
