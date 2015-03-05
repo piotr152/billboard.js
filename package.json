@@ -1,14 +1,14 @@
 {
-    "name": "ccbillboard",
+    "name": "billboard.js",
     "verision": 0.1,
     "description": "A browser-based billboard app",
     "repository" : {
             "type" : "git",
-            "url" : "git@bitbucket.org:piotr/ccbillboard"
+            "url" : "https://github.com/piotr152/billboard.js.git"
     },
 
     "scripts": {
-            "start": "node app.js"
+            "start": "node billboard.js"
     },
 
     "dependencies": {
