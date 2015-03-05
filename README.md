@@ -1,16 +1,21 @@
-# Billboard
+# billboard.js
 
 A little Billboard app that allows you to post messages to the big screen.
 
 ## Installation and Execution
+
+Make sure you have nodejs and npm installed on your system.
+
 ```bash
-git clone git@bitbucket.org:piotr/ccbillboard
-cd ccbillboard
+git clone https://github.com/piotr152/billboard.js.git
+cd billboard.js
 npm install
 
-nodejs app.js #(on Debian-based distros)
-node app.js #(on all other distros)
+nodejs billboard.js #(on Debian and Ubuntu-based distributions)
+node billboard.js #(on all other distros)
 ``` 
+billboard.js will run on port 8000 if no other port is specified. Open your browser at localhost:8000 to read or on localhost:8000/write to write messages.
+
 
 ## Options
 
