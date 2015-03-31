@@ -16,7 +16,8 @@
             "swig": "*",
             "socket.io": "*",
             "optimist": "*",
-            "sqlite": "*"
+            "sqlite3": "*",
+            "body-parser": "*"
     }
 
 }
