@@ -19,13 +19,21 @@ billboard.js will run on port 8000 if no other port is specified. Open your brow
 
 ## Options
 
-`--log <log file>`  the location where the chat log is stored
+`--persistence <type>` how the chat log is stored. "file" or "sqlite" are the options. Default: sqlite
+
+`--log <log file>`  the location of the chat log (only for file persistence)
+
+`--db <db>` the location of the chat log database (only for sqlite persistence)
 
 `--css <css file>` choose the design of your billboard. css files are stored in static/css
 
 `--title <title>` the title for your billboard
 
 `--port <portno>` the port on which the billboard runs
+
+
+
+
 
 `--writelink <link>` the link name used for writing. Default is "write"
 

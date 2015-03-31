@@ -13,12 +13,14 @@ var args = require("optimist").argv
 if (args.title) config.setTitle(args.title)
 if (args.css) config.setCss(args.css)
 if (args.log) config.setLog(args.log)
+if (args.sqlite) config.setLog(args.sqlite)
 if (args.port) config.setPort(args.port)
+if (args.persistence) config.setPersistence(args.persistence)
 if (args.writelink) config.setWriteLink(args.writelink)
 
 
+require("./modules/persistence").setup()
 
-console.log(config.css)
 
 app.use(express.static(path.join(__dirname, 'static')))
 app.use(bodyparser.urlencoded({

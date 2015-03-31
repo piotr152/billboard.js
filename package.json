@@ -15,7 +15,8 @@
             "express": "*",
             "swig": "*",
             "socket.io": "*",
-            "optimist": "*"
+            "optimist": "*",
+            "sqlite": "*"
     }
 
 }

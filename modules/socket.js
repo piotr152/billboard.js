@@ -1,16 +1,17 @@
 var fs = require("fs")
+var db = require("./db")
 var config = require("./config")
+var persistence = require("./persistence")
 
 socket = null
 
 exports.sendmessage = function(msg) {
-	console.log(msg)
 	socket.emit("chat message", msg)
-	fs.appendFile(config.log, JSON.stringify(msg) + "\n")
+        persistence.addMessage(msg)
 }
 
 exports.deletelog = function() {
-	fs.unlink(config.log)
+        persistence.clear()
 	console.log("log deleted\n")
 	socket.emit("logdeleted")
 }
